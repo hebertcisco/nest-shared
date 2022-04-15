@@ -1,6 +1,6 @@
-import * as helpers from "./shared/helpers";
-import * as common from "./shared/common";
-export { HttpResponse, HttpResponseError } from "./shared/common/interfaces";
+import * as helpers from './shared/helpers';
+import * as common from './shared/common';
+export { HttpResponse, HttpResponseError } from './shared/common/interfaces';
 
 const props = {
   ...helpers,
@@ -20,6 +20,7 @@ export const {
   Sum,
   parseFile,
   date,
+  generateAPIKey,
 } = props;
 
 export default props;
