@@ -19,27 +19,25 @@ export const generateAPIKey = (args?: TypeArgs) => {
   let algorithm = 'sha256';
 
   if (args) {
-    switch (args) {
-      case args.size:
-        size = Number(args.size);
-        break;
-      case args.str:
-        str = String(args.str);
-        break;
-      case args.prefix:
-        prefix = String(args.prefix);
-        break;
-      case args.digest:
-        if (String(args.digest) === 'latin1') digest = 'latin1';
-        if (String(args.digest) === 'hex') digest = 'hex';
-        if (String(args.digest) === 'base64') digest = 'base64';
-        break;
-      case args.algorithm:
-        algorithm = String(args.algorithm);
-        break;
-      default:
-        return null;
+    if (args.size) size = Number(args.size);
+
+    if (args.str) str = String(args.str);
+
+    if (args.prefix) prefix = String(args.prefix);
+    if (args.digest) {
+      switch (args.digest) {
+        case 'latin1':
+          digest = 'latin1';
+          break;
+        case 'hex':
+          digest = 'hex';
+          break;
+        default:
+          digest = 'base64';
+          break;
+      }
     }
+    if (args.algorithm) algorithm = String(args.algorithm);
   }
 
   const time = new Date();
@@ -58,6 +56,6 @@ export const generateAPIKey = (args?: TypeArgs) => {
     key += sha256[i];
   }
   key = key.substring(0, size);
-  return `${prefix}_${key.toString()}`;
+  return `${prefix}_${key}`;
 };
 export default generateAPIKey;
