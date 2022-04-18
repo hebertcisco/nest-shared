@@ -1,7 +1,9 @@
 import * as crypto from 'crypto';
 import base64Gen from './base64Gen';
 
-export type TypeDigest = crypto.HexBase64Latin1Encoding;
+export type HexBase64Latin1Encoding = 'latin1' | 'hex' | 'base64';
+
+export type TypeDigest = HexBase64Latin1Encoding;
 
 type TypeArgs = {
   str?: string;
