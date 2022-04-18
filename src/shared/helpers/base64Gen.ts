@@ -1,6 +1,9 @@
 import * as crypto from 'crypto';
-import { TypeBase64Gen, TypeRandomUUID, TypeValidateUUID } from '../../@types/shared/helpers/base64Gen';
 import { VALID_UUID_REGEX } from '../common/constants/regex.constants';
+
+export type TypeBase64Gen = string | Buffer;
+export type TypeRandomUUID = () => TypeBase64Gen;
+export type TypeValidateUUID = (uuid: string) => boolean;
 
 export const base64Gen: TypeBase64Gen = crypto.randomBytes(64).toString('base64');
 
