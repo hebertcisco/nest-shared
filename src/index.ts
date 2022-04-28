@@ -12,7 +12,8 @@ const props = {
 
 export const {
   base64Gen,
-  base64Decode,
+  base64Decoder,
+  base64Encoder,
   randomUUID,
   validateUUID,
   TypeOrmModuleOptionsExtension,
