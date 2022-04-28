@@ -1,5 +1,5 @@
-type TypeID = string | number;
-type TypeArgs = object | Array<any> | any | unknown;
+type TypeID = string | number | symbol;
+type TypeArgs = object | Array<any> | any | unknown | null | undefined;
 type PromiseResponse = Promise<TypeArgs>;
 
 export default interface CrudBase {
