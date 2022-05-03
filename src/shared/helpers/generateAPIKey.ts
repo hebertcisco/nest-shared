@@ -1,9 +1,6 @@
 import * as crypto from 'crypto';
 import base64Gen from './base64Gen';
-
-export type HexBase64Latin1Encoding = 'latin1' | 'hex' | 'base64';
-
-export type TypeDigest = HexBase64Latin1Encoding;
+import { BinaryToTextEncoding } from 'crypto';
 
 type TypeArgs = {
   str?: string;
@@ -17,7 +14,7 @@ export const generateAPIKey = (args?: TypeArgs) => {
   let size = 32;
   let str = base64Gen.toString();
   let prefix = 'apk';
-  let digest: TypeDigest = 'hex';
+  let digest: BinaryToTextEncoding = 'hex';
   let algorithm = 'sha256';
 
   if (args) {
@@ -28,14 +25,17 @@ export const generateAPIKey = (args?: TypeArgs) => {
     if (args.prefix) prefix = String(args.prefix);
     if (args.digest) {
       switch (args.digest) {
-        case 'latin1':
-          digest = 'latin1';
+        case 'base64':
+          digest = 'base64';
           break;
-        case 'hex':
-          digest = 'hex';
+        case 'base64url':
+          digest = 'base64url';
+          break;
+        case 'binary':
+          digest = 'binary';
           break;
         default:
-          digest = 'base64';
+          digest = 'hex';
           break;
       }
     }
