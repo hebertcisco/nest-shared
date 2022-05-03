@@ -1,4 +1,4 @@
-import { Sum } from '../../../';
+import { Sum } from '../../../src';
 
 describe('sum', () => {
   let arrayOfNumbers: number[];

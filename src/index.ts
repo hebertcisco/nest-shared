@@ -22,6 +22,7 @@ export const {
   parseFile,
   date,
   generateAPIKey,
+  handleWithAxiosResponse,
 } = props;
 
 export default props;
