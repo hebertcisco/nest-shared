@@ -1,6 +1,6 @@
 import { HttpService } from '@nestjs/axios';
 import { lastValueFrom, Observable } from 'rxjs';
-import { handleWithAxiosResponse } from '../../../src';
+import { handleWithAxiosResponse } from '../../../../src';
 import type { AxiosResponse } from 'axios';
 
 describe('handleWithAxiosResponse', () => {
