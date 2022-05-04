@@ -3,6 +3,7 @@ export { generateAPIKey } from './generateAPIKey';
 export { Sum } from './sum';
 export { parseFile } from './parseFile';
 import * as date from './date-handle';
-export { handleWithAxiosResponse } from './handleWithAxiosResponse';
+export { handleWithAxiosResponse, isSuccessfulRequest } from './http/handleWithAxiosResponse';
+export { parseQueryParams } from './http/parseQueryParams';
 
 export { date };

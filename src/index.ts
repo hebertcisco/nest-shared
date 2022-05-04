@@ -23,6 +23,8 @@ export const {
   date,
   generateAPIKey,
   handleWithAxiosResponse,
+  isSuccessfulRequest,
+  parseQueryParams,
 } = props;
 
 export default props;

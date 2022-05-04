@@ -19,3 +19,4 @@ export const handleWithAxiosResponse = async (args: AxiosResponse<any, any>) => 
     status,
   );
 };
+export default handleWithAxiosResponse;

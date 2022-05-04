@@ -1,6 +1,6 @@
 {
   "name": "nest-shared",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Shared code for nestjs projects",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -59,6 +59,7 @@
     "express": "^4.17.3",
     "moment": "^2.29.2",
     "multer": "^1.4.4",
+    "qs": "^6.10.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.5"
   }
