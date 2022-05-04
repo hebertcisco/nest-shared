@@ -1,3 +1,5 @@
+[![Node.js Package](https://github.com/hebertcisco/nest-shared/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/hebertcisco/nest-shared/actions/workflows/npm-publish.yml)
+
 ## Installation
 
 > Install with yarn or npm: `yarn` or `npm`:
