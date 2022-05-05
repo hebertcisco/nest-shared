@@ -39,6 +39,7 @@
     "@nestjs/config": "^2.0.0",
     "@nestjs/core": "^8.4.4",
     "@nestjs/swagger": "^5.2.1",
+    "axios": "^0.27.2",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "moment": "^2.29.2",
@@ -49,6 +50,7 @@
   },
   "devDependencies": {
     "@nestjs/testing": "^8.4.4",
+    "@types/axios": "^0.14.0",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.13",
     "@types/jest": "27.4.0",
