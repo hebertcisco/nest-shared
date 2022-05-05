@@ -1,6 +1,7 @@
 import * as helpers from './shared/helpers';
 import * as common from './shared/common';
-export { HttpResponse, HttpResponseError } from './shared/common/interfaces';
+import * as core from './shared/core';
+export type { HttpResponse, HttpResponseError } from './shared/common/interfaces';
 
 const props = {
   ...helpers,
@@ -8,6 +9,7 @@ const props = {
   ...common.constants.REGEX,
   ...common.entity,
   ...common.interfaces,
+  ...core,
 };
 
 export const {
@@ -25,6 +27,7 @@ export const {
   handleWithAxiosResponse,
   isSuccessfulRequest,
   parseQueryParams,
+  getKeyFromClass,
 } = props;
 
 export default props;
