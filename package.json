@@ -1,6 +1,6 @@
 {
   "name": "nest-shared",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Shared code for nestjs projects",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -57,6 +57,7 @@
     "@types/jest": "27.4.0",
     "@types/multer": "^1.4.7",
     "@types/node": "^17.0.31",
+    "@types/qs": "^6.9.7",
     "@typescript-eslint/eslint-plugin": "5.10.2",
     "@typescript-eslint/parser": "5.10.2",
     "eslint": "7.32.0",
