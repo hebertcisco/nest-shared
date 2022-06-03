@@ -1,6 +1,6 @@
-import * as crypto from 'crypto';
+import crypto from 'node:crypto';
 import base64Gen from './base64Gen';
-import { BinaryToTextEncoding } from 'crypto';
+import type { BinaryToTextEncoding } from 'node:crypto';
 
 type TypeArgs = {
   str?: string;

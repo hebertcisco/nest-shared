@@ -1,5 +1,5 @@
-import { AxiosResponse } from 'axios';
 import { HttpException } from '@nestjs/common';
+import type { AxiosResponse } from 'axios';
 
 export function isSuccessfulRequest(status: number) {
   return status >= 200 && status <= 399;
