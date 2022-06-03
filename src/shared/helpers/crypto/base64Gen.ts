@@ -1,5 +1,5 @@
 import crypto from 'node:crypto';
-import { VALID_UUID_REGEX } from '../common/constants/regex.constants';
+import { VALID_UUID_REGEX } from '../../common/constants/regex.constants';
 
 export type TypeBase64Gen = string | Buffer;
 export type TypeRandomUUID = () => TypeBase64Gen;
