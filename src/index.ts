@@ -21,6 +21,7 @@ export const {
   TypeOrmModuleOptionsExtension,
   AppServiceInterface,
   Sum,
+  RandomNumber,
   parseFile,
   date,
   generateAPIKey,
