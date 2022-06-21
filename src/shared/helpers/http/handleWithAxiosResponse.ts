@@ -11,12 +11,14 @@ export const handleWithAxiosResponse = async (args: AxiosResponse<any, any>) => 
   if (isSuccessfulRequest(status)) {
     return data;
   }
-  throw new HttpException(
-    args.data || {
-      statusCode: status,
-      message: 'Something went wrong',
-    },
-    status,
+  return Promise.reject(
+    new HttpException(
+      args.data || {
+        statusCode: status,
+        message: 'Something went wrong',
+      },
+      status,
+    ),
   );
 };
 export default handleWithAxiosResponse;
