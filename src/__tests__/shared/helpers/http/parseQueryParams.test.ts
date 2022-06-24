@@ -1,4 +1,4 @@
-import { parseQueryParams } from '../../../../src';
+import { parseQueryParams } from '../../../..';
 
 describe('parseQueryParams', () => {
   let queryParams: object;

@@ -1,4 +1,4 @@
-import { base64Gen, base64Encoder, base64Decoder } from '../../../../src';
+import { base64Gen, base64Encoder, base64Decoder } from '../../../..';
 
 describe('base64Gen', () => {
   it('should return a base64 string', () => {

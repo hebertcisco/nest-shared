@@ -31,4 +31,6 @@ export const {
   getKeyFromClass,
 } = props;
 
+export * from './shared';
+
 export default props;

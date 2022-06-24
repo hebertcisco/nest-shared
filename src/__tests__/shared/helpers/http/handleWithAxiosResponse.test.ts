@@ -1,4 +1,4 @@
-import { handleWithAxiosResponse } from '../../../../src';
+import { handleWithAxiosResponse } from '../../../..';
 import axios from 'axios';
 
 describe('handleWithAxiosResponse', () => {
