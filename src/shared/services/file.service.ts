@@ -65,10 +65,13 @@ export class FileService {
     }
     return new URL(files[0]?.location);
   }
-  public getS3FileKey(req: Request): string {
-    const fileURL = this.getS3FileURL(req) as UrlType;
-    const parsedPath = fileURL.pathname.replace(/^\/+/, '');
-    return parsedPath;
+  public getS3FileKey(req: Request): string | null {
+    const fileURL = this.getS3FileURL(req);
+    if (!fileURL || !fileURL.pathname) {
+      return null;
+    }
+    const parsedPath = fileURL?.pathname?.replace(/^\/+/, '');
+    return String(parsedPath);
   }
   public getSignedUrl(key: string, expires: number, bucket?: string): UrlType {
     const signedURl = this.handleSignedUrl(String(bucket), key, expires || 60 * 5);
@@ -85,7 +88,7 @@ export class FileService {
   }
   public parseFileURL(avatar: string, bucket: string, expires?: number): string {
     const signedUrl = this.getSignedUrl(avatar, expires || 3600, bucket);
-    return signedUrl.href;
+    return String(signedUrl.href);
   }
 }
 export default FileService;
