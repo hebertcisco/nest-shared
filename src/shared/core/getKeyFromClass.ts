@@ -1,6 +1,4 @@
-class ClassBase {}
-
-export type ClassType = typeof ClassBase;
+import { ClassType } from '../types/class.type';
 
 export function getKeyFromClass(clazz: ClassType): string {
   return clazz.name.toLocaleUpperCase();

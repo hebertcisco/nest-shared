@@ -1,12 +1,10 @@
-export type TypeID = string | number | symbol;
-export type TypeArgs = object | Array<any> | any | unknown | null | undefined;
-export type PromiseResponse = Promise<TypeArgs>;
+import type { PromiseResponse, TypeArgs, TypeID } from '../types/crud-base.type';
 
-export abstract class CrudBase {
-  public abstract create?(args?: TypeArgs): PromiseResponse;
-  public abstract findAll?(args?: TypeArgs): PromiseResponse;
-  public abstract findOne?(id: TypeID, args?: TypeArgs): PromiseResponse;
-  public abstract update?(id: TypeID, args?: TypeArgs): PromiseResponse;
-  public abstract remove?(id: TypeID): PromiseResponse;
+export class CrudBase {
+  public create?(args?: TypeArgs): PromiseResponse;
+  public findAll?(args?: TypeArgs): PromiseResponse;
+  public findOne?(id: TypeID, args?: TypeArgs): PromiseResponse;
+  public update?(id: TypeID, args?: TypeArgs): PromiseResponse;
+  public remove?(id: TypeID): PromiseResponse;
 }
 export default CrudBase;
