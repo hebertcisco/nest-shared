@@ -5,7 +5,6 @@ export { handleWithAxiosResponse, isSuccessfulRequest } from './http/handleWithA
 export { parseQueryParams } from './http/parseQueryParams';
 export { Sum } from './math/sum';
 
-
 import * as date from './time/date-handle';
 export { RandomNumber } from './math/RandomNumber';
 export { date };
