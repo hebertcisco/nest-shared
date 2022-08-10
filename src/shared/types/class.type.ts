@@ -1,3 +1,3 @@
-import { ClassBase } from '../common/base/class-base';
+import { ClassBase } from '../common';
 
 export type ClassType = typeof ClassBase;
