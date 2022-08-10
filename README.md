@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/hebertcisco/nest-shared/branch/master/graph/badge.svg?token=5PBW46PS3R)](https://codecov.io/gh/hebertcisco/nest-shared)
+[![codecov](https://codecov.io/gh/hebertcisco/nest-shared/branch/main/graph/badge.svg?token=5PBW46PS3R)](https://codecov.io/gh/hebertcisco/nest-shared)
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/hebertcisco/nest-shared)
 
