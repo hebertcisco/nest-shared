@@ -24,7 +24,7 @@ export class ConfigService {
   }
 
   public getPort(): number {
-    return Number(this.getValue('PORT', true));
+    return Number(this.getValue('PORT', false)) || 4000;
   }
 
   public isProduction(): boolean {
@@ -38,6 +38,10 @@ export class ConfigService {
   public isTest(): boolean {
     const mode = this.getValue('NODE_ENV', true);
     return mode === 'testing';
+  }
+  public getEnvironment(): string {
+    const value = this.getValue('NODE_ENV', true);
+    return String(value);
   }
 }
 export const configService: ConfigService = new ConfigService(process.env);
