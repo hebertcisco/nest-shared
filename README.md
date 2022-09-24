@@ -37,7 +37,7 @@ const shared = require('nest-shared');
 ```ts
 #!/usr/bin/env node
 import app from './app';
-import shared from 'nest-shared';
+import { configService } from 'nest-shared';
 
 app.listen(shared.PORT, () => process.stdout.write(`Server is running on port ${shared.PORT}\n`));
 ```

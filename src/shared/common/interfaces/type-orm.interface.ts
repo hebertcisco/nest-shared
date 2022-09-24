@@ -19,3 +19,4 @@ export interface TypeOrmModuleOptionsExtension {
   schema?: string;
   migrationsRun?: boolean;
 }
+export default TypeOrmModuleOptionsExtension;
