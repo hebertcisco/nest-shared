@@ -5,7 +5,6 @@ describe('ConfigService', () => {
   let configService: ConfigService;
   let getValue: string;
   let getBoolean: boolean;
-  let getPort: number;
   let isProduction: boolean;
 
   beforeAll(() => {
@@ -14,7 +13,6 @@ describe('ConfigService', () => {
   beforeEach(() => {
     getValue = configService.getValue('NODE_ENV');
     getBoolean = configService.getBoolean('NODE_ENV');
-    getPort = configService.getPort();
     isProduction = configService.isProduction();
   });
   describe('getValue', () => {
@@ -35,14 +33,6 @@ describe('ConfigService', () => {
     });
     it('should type be a boolean', () => {
       expect(typeof getBoolean === 'boolean').toBeTruthy();
-    });
-  });
-  describe('getPort', () => {
-    it('should be PORT value exists', () => {
-      expect(getPort).toBeDefined();
-    });
-    it('should type be a number', () => {
-      expect(typeof getPort === 'number').toBeTruthy();
     });
   });
   describe('isProduction', () => {

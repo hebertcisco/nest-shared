@@ -1,19 +1,18 @@
 import {
-  PORT,
+  NODE_PORT,
   WEBSOCKET_PORT,
   CACHE_TTL,
   CACHE_TTL_50_SEC,
-  API_HEADER_OPTIONS,
 } from '../../../../shared/common/constants/global.constants';
 
-describe('PORT', () => {
-  test('should be 3000', () => {
-    expect(PORT).toBe(3000);
+describe('NODE_PORT', () => {
+  test('should be 4000', () => {
+    expect(NODE_PORT).toBe(4000);
   });
 });
 describe('WEBSOCKET_PORT', () => {
-  test('should be 3001', () => {
-    expect(WEBSOCKET_PORT).toBe(3001);
+  test('should be 4001', () => {
+    expect(WEBSOCKET_PORT).toBe(4001);
   });
 });
 describe('CACHE_TTL', () => {
@@ -24,16 +23,5 @@ describe('CACHE_TTL', () => {
 describe('CACHE_TTL_50_SEC', () => {
   test('should be 50', () => {
     expect(CACHE_TTL_50_SEC).toBe(50);
-  });
-});
-describe('API_HEADER_OPTIONS', () => {
-  test('should be [{name: Authorization, description: Bearer Access Token, required: true}]', () => {
-    expect(API_HEADER_OPTIONS).toStrictEqual([
-      {
-        name: 'Authorization',
-        description: 'Bearer Access Token',
-        required: true,
-      },
-    ]);
   });
 });
