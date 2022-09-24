@@ -26,7 +26,7 @@ export class ConfigService {
 
   public getPort(): number {
     const value = this.getValue('PORT', false);
-    return parseInt(value, 10) || NODE_PORT;
+    return parseInt(value) || NODE_PORT;
   }
 
   public isProduction(): boolean {
@@ -47,6 +47,4 @@ export class ConfigService {
   }
 }
 export const configService: ConfigService = new ConfigService(process.env);
-export const { getValue, getBoolean, ensureValues, getPort, isProduction, isDevelopment, isTest, getEnvironment } =
-  configService;
 export default ConfigService;
