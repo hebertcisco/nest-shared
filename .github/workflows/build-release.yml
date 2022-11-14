@@ -25,14 +25,6 @@ jobs:
       - name: Build
         id: build_tsc
         run: npm run build
-        with:
-          releaseDirectory: lib
-
-      - name: Make artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: nest-shared-${{ steps.var.outputs.tag }}
-          path: lib
 
       - name: Build Changelog
         id: changelog
