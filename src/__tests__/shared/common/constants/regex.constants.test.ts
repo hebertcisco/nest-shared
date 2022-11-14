@@ -1,4 +1,4 @@
-import { VALID_UUID_REGEX } from '../../../../shared/common/constants/regex.constants';
+import { VALID_UUID_REGEX } from '../../../../common';
 
 describe('VALID_UUID_REGEX', () => {
   test('should match a valid UUID', () => {

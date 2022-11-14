@@ -7,20 +7,23 @@ export type {
   HttpResponseError,
   AppServiceInterface,
   TypeOrmModuleOptionsExtension,
-} from './shared/common/interfaces';
+} from './common/interfaces';
+export type { FileType, FileServiceArgs } from './modules';
+export type { ClassType, TypeID, PromiseResponse } from './shared/types';
+
+export * from './config';
+export * from './config';
+
+export * from './modules';
+export * from './modules/file/interfaces';
+export * from './modules/file/services';
 
 export * from './shared';
-export * from './shared/core';
-export * from './shared/interfaces';
-export * from './shared/services';
-export * from './shared/types';
-export * from './shared/config';
-
-export * from './shared/common';
-export * from './shared/common/base';
-export * from './shared/common/constants';
-export * from './shared/common/entity';
-export * from './shared/common/interfaces';
+export * from './common';
+export * from './common/base';
+export * from './common/constants';
+export * from './common/entity';
+export * from './common/interfaces';
 
 export * from './shared/helpers';
 export * from './shared/helpers/crypto';

@@ -1,4 +1,4 @@
-import { FileService } from '../../../shared/services/file.service';
+import { FileService } from '../../../modules/file/services/file.service';
 
 describe('FileService', () => {
   let service: FileService;

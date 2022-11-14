@@ -1,5 +1,5 @@
 import processMock from '../../../shared/mocks/javascript/process.mock';
-import ConfigService from '../../../shared/config/application.config';
+import { ConfigService } from '../../../config';
 
 describe('ConfigService', () => {
   let configService: ConfigService;

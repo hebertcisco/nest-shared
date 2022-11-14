@@ -1,4 +1,4 @@
-import { ClassType } from '../../../shared';
+import type { ClassType } from '../../../shared/types';
 
 describe('ClassType', () => {
   test('should be a function', () => {

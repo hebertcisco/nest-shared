@@ -1,5 +1,5 @@
-import { getKeyFromClass } from '../../../../src';
-import { CrudBase } from '../../../shared/core';
+import { getKeyFromClass } from '../../../';
+import CrudBase from '../../../common/base/crud-base';
 
 describe('getKeyFromClass', () => {
   it('should return akey from CrudBase class', () => {

@@ -8,4 +8,3 @@ export interface AppServiceInterface {
     region: string;
   };
 }
-export default AppServiceInterface;

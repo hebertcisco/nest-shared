@@ -1,8 +1,10 @@
 import moment from 'moment';
+import DateHandle from 'date-handle';
+import type { DurationInputArg1, DurationInputArg2 } from 'moment';
 
 export type DateType = string | number | Date;
 
-export class DateHandle {
+export class DateHandleImpl implements DateHandle {
   public day: number;
   constructor() {
     this.day = moment().weekday();
@@ -19,7 +21,7 @@ export class DateHandle {
   public isMonday = (): boolean => {
     return this.dayOfWeek(1);
   };
-  static getAgeFromDate(date: DateType): number {
+  public getAgeFromDate(date: DateType): number {
     const today = new Date();
     const birthDate = new Date(date);
     const age = today.getFullYear() - birthDate.getFullYear();
@@ -29,71 +31,61 @@ export class DateHandle {
     }
     return age;
   }
-  static getRandomBirthDate(birthDate: DateType): DateType {
+  public getRandomBirthDate(birthDate: DateType): DateType {
     const date = moment(birthDate);
     const randomDay = Math.floor(Math.random() * (365 - 1 + 1)) + 1;
     date.add(randomDay, 'days');
     return date.toDate();
   }
-  static future(
-    many: moment.DurationInputArg1,
-    timeType?: 'minutes' | 'hours' | 'days' | 'months' | 'years',
-  ): string | any {
-    switch (timeType) {
+  public future(amount?: DurationInputArg1, unit?: DurationInputArg2): string {
+    switch (unit as string) {
       case 'days':
-        return moment().add(many, 'days').format('YYYY-MM-DD HH:mm:ss');
+        return moment().add(amount, 'days').format('YYYY-MM-DD HH:mm:ss') as string;
       case 'months':
-        return moment().add(many, 'months').format('YYYY-MM-DD HH:mm:ss');
+        return moment().add(amount, 'months').format('YYYY-MM-DD HH:mm:ss') as string;
       case 'years':
-        return moment().add(many, 'years').format('YYYY-MM-DD HH:mm:ss');
+        return moment().add(amount, 'years').format('YYYY-MM-DD HH:mm:ss') as string;
       case 'minutes':
-        return moment().add(many, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+        return moment().add(amount, 'minutes').format('YYYY-MM-DD HH:mm:ss') as string;
       case 'hours':
-        return moment().add(many, 'hours').format('YYYY-MM-DD HH:mm:ss');
+        return moment().add(amount, 'hours').format('YYYY-MM-DD HH:mm:ss') as string;
       default:
-        return moment().add(many, 'days').format('YYYY-MM-DD HH:mm:ss');
+        return moment().add(amount, 'days').format('YYYY-MM-DD HH:mm:ss') as string;
     }
   }
-  static futureFully(many: number | Date | any, timeType?: 'days' | 'months' | 'years'): string | any {
-    switch (timeType) {
+
+  public past(amount: DurationInputArg1, unit: DurationInputArg2): string {
+    switch (unit as string) {
       case 'days':
-        return this.future(many, 'days').format('YYYY-MM-DD HH:mm:ss');
+        return moment().subtract(amount, 'days').format('YYYY-MM-DD HH:mm:ss') as string;
       case 'months':
-        return this.future(many, 'months').format('YYYY-MM-DD HH:mm:ss');
+        return moment().subtract(amount, 'months').format('YYYY-MM-DD HH:mm:ss') as string;
       case 'years':
-        return this.future(many, 'years').format('YYYY-MM-DD HH:mm:ss');
+        return moment().subtract(amount, 'years').format('YYYY-MM-DD HH:mm:ss') as string;
+      case 'minutes':
+        return moment().subtract(amount, 'minutes').format('YYYY-MM-DD HH:mm:ss') as string;
+      case 'hours':
+        return moment().subtract(amount, 'hours').format('YYYY-MM-DD HH:mm:ss') as string;
+      default:
+        return moment().subtract(amount, 'days').format('YYYY-MM-DD HH:mm:ss') as string;
     }
   }
-  static past(many: number | Date | any, timeType?: 'days' | 'months' | 'years'): string | any {
-    switch (timeType) {
-      case 'days':
-        return moment().subtract(many, 'days').format('YYYY-MM-DD');
-      case 'months':
-        return moment().subtract(many, 'months').format('YYYY-MM-DD');
-      case 'years':
-        return moment().subtract(many, 'years').format('YYYY-MM-DD');
-    }
-  }
-  static pastFully(many: number | Date | any, timeType?: 'days' | 'months' | 'years'): string | any {
-    switch (timeType) {
-      case 'days':
-        return moment().subtract(many, 'days').format('YYYY-MM-DD HH:mm:ss');
-      case 'months':
-        return moment().subtract(many, 'months').format('YYYY-MM-DD HH:mm:ss');
-      case 'years':
-        return moment().subtract(many, 'years').format('YYYY-MM-DD HH:mm:ss');
-    }
-  }
-  static date = {
-    y: moment().format('YYYY'),
-    m: moment().format('MM'),
-    d: moment().format('DD'),
-    now: moment().format('YYYY-MM-DD'),
-    nowFully: moment().format('YYYY-MM-DD HH:mm:ss'),
-    h: moment().format('HH:mm:ss'),
+
+  public date = {
+    y: new Date(moment().format('YYYY')),
+    m: new Date(moment().format('MM')),
+    d: new Date(moment().format('DD')),
+    now: new Date(moment().format('YYYY-MM-DD HH:mm:ss')),
+    nowFully: new Date(moment().format('YYYY-MM-DD HH:mm:ss.SSS')),
+    h: new Date(moment().format('HH:mm:ss')),
   };
-  static yesterday = (): string => moment().subtract(1, 'days').format('YYYY-MM-DD');
+  public yesterday = (): string => moment().subtract(1, 'days').format('YYYY-MM-DD');
 }
-const { future, futureFully, past, pastFully, date, yesterday, getRandomBirthDate, getAgeFromDate } = DateHandle;
-export { future, futureFully, past, pastFully, date, yesterday, getRandomBirthDate, getAgeFromDate };
-export default DateHandle;
+
+export const dateHandle = new DateHandleImpl();
+
+const { dayOfWeek, isSaturday, isSunday, isMonday, getAgeFromDate, getRandomBirthDate, future, past, date, yesterday } =
+  dateHandle;
+
+export { dayOfWeek, isSaturday, isSunday, isMonday, getAgeFromDate, getRandomBirthDate, future, past, yesterday, date };
+export default new DateHandleImpl();

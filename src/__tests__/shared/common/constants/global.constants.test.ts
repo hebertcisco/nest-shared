@@ -1,9 +1,4 @@
-import {
-  NODE_PORT,
-  WEBSOCKET_PORT,
-  CACHE_TTL,
-  CACHE_TTL_50_SEC,
-} from '../../../../shared/common/constants/global.constants';
+import { NODE_PORT, WEBSOCKET_PORT, CACHE_TTL, CACHE_TTL_50_SEC } from '../../../../common';
 
 describe('NODE_PORT', () => {
   test('should be 4000', () => {

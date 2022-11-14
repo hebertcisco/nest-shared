@@ -1,11 +1,11 @@
-import type { TypeID, TypeArgs, PromiseResponse } from '../../../shared';
+import type { PromiseResponse, TypeID } from '../../../shared/types';
 
 describe('CRUD Base', () => {
   let uuid: TypeID;
   let number: TypeID;
-  let args: TypeArgs;
+  let args: object;
   let symbol: TypeID;
-  let promiseResponse: PromiseResponse;
+  let promiseResponse: PromiseResponse<object>;
 
   beforeEach(() => {
     uuid = 'fd3130fa-463a-4cce-9055-70798ce4b838';

@@ -1,4 +1,4 @@
-import { FilesInterceptorInterfaceArgs } from '../../../shared';
+import type { FilesInterceptorInterfaceArgs } from '../../../modules';
 
 describe('FilesInterceptorInterfaceArgs', () => {
   test('should be defined', () => {

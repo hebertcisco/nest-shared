@@ -1,2 +1,2 @@
-export * from './base64Gen';
+export * from './Base64';
 export * from './generateAPIKey';

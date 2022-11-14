@@ -10,7 +10,7 @@ import type { Request } from 'express';
 import type { URL as UrlType } from 'url';
 
 import type { FileServiceArgs, FileType } from '../types/file.type';
-import type { FilesInterceptorInterfaceArgs } from '../interfaces/file.interface';
+import type { FilesInterceptorInterfaceArgs } from '../interfaces';
 
 export class FileService {
   private s3: AWS.S3 = new AWS.S3();

@@ -1,7 +1,8 @@
-import { CrudBase } from '../../../shared/core';
+import { CrudBase } from '../../../common';
 
 describe('CrudBase', () => {
   it('should create an instance', () => {
-    expect(new CrudBase()).toBeTruthy();
+    class CrudImpl implements CrudBase {}
+    expect(new CrudImpl()).toBeTruthy();
   });
 });

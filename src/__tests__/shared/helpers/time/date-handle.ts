@@ -1,4 +1,6 @@
-import { DateHandle } from '../../../../shared';
+import { future, getAgeFromDate, getRandomBirthDate, past, yesterday } from '../../../../shared';
+import { DateHandleImpl } from '../../../../shared';
+import { date } from '../../../../shared';
 
 describe('DateHandle', () => {
   let staticDate: Date;
@@ -10,52 +12,48 @@ describe('DateHandle', () => {
     jest.useFakeTimers().setSystemTime(staticDate);
   });
   test('should return an object with the correct type and name', () => {
-    const result = DateHandle.getAgeFromDate(staticDate);
+    const result = getAgeFromDate(staticDate);
     expect(result).toBe(-53);
   });
 
   test('dayOfWeek', () => {
-    const dateHandle = new DateHandle();
+    const dateHandle = new DateHandleImpl();
     const result = dateHandle.dayOfWeek(Date.now());
     expect(result).toBeFalsy();
   });
   test('isSaturday', () => {
-    const dateHandle = new DateHandle();
+    const dateHandle = new DateHandleImpl();
     const result = dateHandle.isSaturday();
     expect(result).toBeFalsy();
   });
   test('isSunday', () => {
-    const dateHandle = new DateHandle();
+    const dateHandle = new DateHandleImpl();
     const result = dateHandle.isSunday();
     expect(result).toBeFalsy();
   });
   test('isMonday', () => {
-    const dateHandle = new DateHandle();
+    const dateHandle = new DateHandleImpl();
     const result = dateHandle.isMonday();
     expect(result).toBeFalsy();
   });
   test('getRandomBirthDate', () => {
-    const result = DateHandle.getRandomBirthDate(staticDate);
+    const result = getRandomBirthDate(staticDate);
     expect(result).toBeInstanceOf(Date);
   });
   test('future', () => {
-    const result = DateHandle.future(1, 'days');
+    const result = future(1, 'days');
     expect(result).toBeDefined();
   });
   test('past', () => {
-    const result = DateHandle.past(1, 'days');
+    const result = past(1, 'days');
     expect(result).toBeDefined();
   });
-  test('pastFully', () => {
-    const result = DateHandle.pastFully(1, 'days');
-    expect(result).toBeDefined();
-  });
+
   test('date', () => {
-    const result = DateHandle.date;
-    expect(result).toBeInstanceOf(Object);
+    expect(date).toBeInstanceOf(Object);
   });
   test('yesterday', () => {
-    const result = DateHandle.yesterday();
+    const result = yesterday();
     expect(result).toBeDefined();
   });
 });

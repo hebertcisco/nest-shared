@@ -1,4 +1,4 @@
-import { FileServiceArgs, FileType } from '../../../shared';
+import type { FileServiceArgs, FileType } from '../../../modules';
 
 describe('File', () => {
   let fileTypeTest: FileType;

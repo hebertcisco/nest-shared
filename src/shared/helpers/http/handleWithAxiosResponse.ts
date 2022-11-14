@@ -4,12 +4,12 @@ import type { AxiosResponse } from 'axios';
 export function isSuccessfulRequest(status: number) {
   return status >= 200 && status <= 399;
 }
-export const handleWithAxiosResponse = async (args: AxiosResponse<any, any>) => {
+export const handleWithAxiosResponse = async <AxiosResult>(args: AxiosResponse<AxiosResult>) => {
   const { data } = args;
   const { status } = args;
 
   if (isSuccessfulRequest(status)) {
-    return data;
+    return data as AxiosResult;
   }
   return Promise.reject(
     new HttpException(
