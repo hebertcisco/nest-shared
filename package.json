@@ -58,7 +58,7 @@
     "randts": "^0.1.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.6",
-    "unique-slug": "^2.0.2"
+    "unique-slug": "^4.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
