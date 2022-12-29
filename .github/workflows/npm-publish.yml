@@ -3,7 +3,10 @@ name: Node.js build and publish package
 on:
   release:
     types: [created]
-
+  push:
+    branches:
+      - main
+      - 'releases/**'
 jobs:
   build:
     runs-on: windows-latest
