@@ -8,8 +8,9 @@ export class ConfigService {
 
   public getValue<GetValueType>(key: string, throwOnMissing = true): GetValueType {
     const value = this.env[key];
-    if (!value && throwOnMissing) {
-      throw new Error(`config error - missing env.${key}`);
+    const canBeThrown: boolean = this.isTest() !== true && !value && throwOnMissing;
+    if (canBeThrown) {
+      throw new Error(`ConfigService error - Missing env.${key}`);
     }
     return value as unknown as GetValueType;
   }
