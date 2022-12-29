@@ -1,9 +1,9 @@
 import crypto from 'node:crypto';
-import { BufferBase } from '../../../common/base/buffer-base';
+import { BufferBase } from '../../contract/base';
 
-import { VALID_UUID_REGEX } from '../../../common';
+import { VALID_UUID_REGEX } from '../../constants';
 
-import type { DecodeEncodingType, DecodeStrType, EncodeDataType } from '../../types/buffer.type';
+import type { DecodeEncodingType, DecodeStrType, EncodeDataType } from '../../contract/types/buffer.type';
 
 export class Base64 implements BufferBase {
   public encode(data: EncodeDataType) {
@@ -28,11 +28,16 @@ export class Base64 implements BufferBase {
     return uuid;
   }
 }
+
 export const base64 = new Base64();
 export const base64Gen: string = base64.encode(base64.randomUUID());
+
 export const randomUUID: string = base64.randomUUID();
+
 export const decodeToBuffer = base64.decodeToBuffer;
+
 export const validateUUID = base64.validateUUID;
+
 export const encode = base64.encode;
 export const decode = base64.decode;
 

@@ -1,6 +1,6 @@
-import { future, getAgeFromDate, getRandomBirthDate, past, yesterday } from '../../../../shared';
-import { DateHandleImpl } from '../../../../shared';
-import { date } from '../../../../shared';
+import { future, getAgeFromDate, getRandomBirthDate, past, yesterday } from '../../..';
+import { DateHandleImpl } from '../../..';
+import { date } from '../../..';
 
 describe('DateHandle', () => {
   let staticDate: Date;

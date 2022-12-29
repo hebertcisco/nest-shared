@@ -1,4 +1,4 @@
-import type { PromiseResponse, TypeID } from '../../shared/types';
+import type { PromiseResponse, TypeID } from '../types';
 
 export abstract class CrudBase {
   public abstract create?<TypeArgs>(args?: TypeArgs): PromiseResponse<TypeArgs>;

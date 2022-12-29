@@ -1,4 +1,4 @@
-import { parseFile } from '../../../../shared';
+import { parseFile } from '../../..';
 
 describe('parseFile', () => {
   test('should return an object with the correct type and name', () => {
