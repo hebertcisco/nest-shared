@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import { Injectable } from '@nestjs/common';
 import { NODE_PORT } from '../shared';
+import { NodeEnvType } from '../shared/contract/types/nodeEnv.type';
 
 @Injectable()
 export class ConfigService {
@@ -8,7 +9,11 @@ export class ConfigService {
 
   public getValue<GetValueType>(key: string, throwOnMissing = true): GetValueType {
     const value = this.env[key];
-    const canBeThrown: boolean = this.isTest() !== true && !value && throwOnMissing;
+
+    const nodeEnv = process.env['NODE_ENV'] as unknown as NodeEnvType;
+    const safeEnv: boolean = nodeEnv == 'development' || nodeEnv === 'testing';
+
+    const canBeThrown: boolean = safeEnv && !value && throwOnMissing;
     if (canBeThrown) {
       throw new Error(`ConfigService error - Missing env.${key}`);
     }
