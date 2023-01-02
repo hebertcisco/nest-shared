@@ -74,7 +74,7 @@
     "@types/multer-s3": "^2.7.12",
     "@types/node": "^18.6.2",
     "@types/qs": "^6.9.7",
-    "@typescript-eslint/eslint-plugin": "5.46.1",
+    "@typescript-eslint/eslint-plugin": "5.47.1",
     "@typescript-eslint/parser": "5.31.0",
     "eslint": "8.31.0",
     "eslint-plugin-jest": "27.1.6",
