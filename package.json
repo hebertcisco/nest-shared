@@ -1,6 +1,6 @@
 {
   "name": "nest-shared",
-  "version": "0.4.62",
+  "version": "0.4.63",
   "description": "Shared code for nestjs projects",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -52,7 +52,7 @@
     "axios": "^0.27.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
-    "date-handle": "^0.0.3",
+    "date-handle": "^0.0.4",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "moment": "^2.29.4",
