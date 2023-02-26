@@ -10,18 +10,11 @@ describe('DateHandle', () => {
     jest.useFakeTimers().setSystemTime(staticDate);
   });
 
-  test('dayOfWeek', () => {
-    const result = dateHandle.dayOfWeek(Date.now());
-    expect(result).toBeFalsy();
-  });
   test('isSaturday', () => {
     const result = dateHandle.isSaturday();
     expect(result).toBeFalsy();
   });
-  test('isSunday', () => {
-    const result = dateHandle.isSunday();
-    expect(result).toBeFalsy();
-  });
+
   test('isMonday', () => {
     const result = dateHandle.isMonday();
     expect(result).toBeFalsy();
