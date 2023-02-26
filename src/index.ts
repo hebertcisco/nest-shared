@@ -31,15 +31,3 @@ export * from './shared/helpers/fs';
 export * from './shared/helpers/http';
 export * from './shared/helpers/math';
 export * from './shared/helpers/time';
-
-export * from './libs';
-export * from './libs/api';
-export * from './libs/application';
-export * from './libs/db';
-export * from './libs/ddd';
-export * from './libs/decorators';
-
-export * from './libs/exceptions';
-export * from './libs/guard';
-export * from './libs/ports';
-export * from './libs/types';
