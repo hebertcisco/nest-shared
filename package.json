@@ -41,6 +41,7 @@
   ],
   "dependencies": {
     "@localtools/base64": "^0.0.4",
+    "@nestjs/cache-manager": "^1.0.0",
     "@nestjs/common": "^9.0.5",
     "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.4.0",
@@ -48,6 +49,7 @@
     "@nestjs/swagger": "^6.0.4",
     "aws-sdk": "^2.1117.0",
     "axios": "^0.27.2",
+    "cache-manager": "^5.2.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "date-handle": "^0.0.4",
