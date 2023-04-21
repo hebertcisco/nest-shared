@@ -42,6 +42,8 @@
   "dependencies": {
     "@localtools/base64": "^0.0.4",
     "@nestjs/common": "^9.0.5",
+    "@nestjs/config": "^2.3.1",
+    "@nestjs/core": "^9.4.0",
     "@nestjs/platform-express": "^9.0.7",
     "@nestjs/swagger": "^6.0.4",
     "aws-sdk": "^2.1117.0",
@@ -60,6 +62,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
+    "@nestjs/cli": "^9.4.0",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^8.0.5",
