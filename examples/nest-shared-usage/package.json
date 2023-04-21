@@ -13,10 +13,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nest-shared": "^0.4.54"
+    "nest-shared": "^5.0.1"
   },
   "devDependencies": {
-    "@types/node": "^18.11.9",
-    "typescript": "^4.8.4"
+    "@types/node": "^18.15.12",
+    "typescript": "^5.0.4"
   }
 }
