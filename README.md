@@ -6,6 +6,8 @@
 
 [![Running Code Coverage](https://github.com/hebertcisco/nest-shared/actions/workflows/coverage.yml/badge.svg)](https://github.com/hebertcisco/nest-shared/actions/workflows/coverage.yml)
 
+[![📝 Update Lock](https://github.com/hebertcisco/nest-shared/actions/workflows/update-lock.yml/badge.svg)](https://github.com/hebertcisco/nest-shared/actions/workflows/update-lock.yml)
+
 ## Installation
 
 > Install with yarn or npm: `yarn` or `npm`:
