@@ -4,6 +4,8 @@
 
 [![Node.js Package](https://github.com/hebertcisco/nest-shared/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/hebertcisco/nest-shared/actions/workflows/npm-publish.yml)
 
+[![Running Code Coverage](https://github.com/hebertcisco/nest-shared/actions/workflows/coverage.yml/badge.svg)](https://github.com/hebertcisco/nest-shared/actions/workflows/coverage.yml)
+
 ## Installation
 
 > Install with yarn or npm: `yarn` or `npm`:
