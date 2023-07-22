@@ -1,15 +1,15 @@
 {
   "name": "nest-shared",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Shared code for nestjs projects",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.(js|ts)\"",
-    "lint": "eslint src --ext .js,.ts",
-    "lint:fix": "eslint src --fix --ext .js,.ts",
-    "test": "jest --config jest.config.js",
+    "format": "npx prettier --write \"src/**/*.(js|ts)\"",
+    "lint": "npx eslint src --ext .js,.ts",
+    "lint:fix": "npx eslint src --fix --ext .js,.ts",
+    "test": "npx jest --config jest.config.js",
     "test:cov": "npm test -- --coverage",
     "test:watch": "npm test -- --watch",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
@@ -19,8 +19,8 @@
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags",
-    "release": "semantic-release",
-    "release:dry": "semantic-release --dry-run"
+    "release": "npx semantic-release",
+    "release:dry": "npx semantic-release --dry-run"
   },
   "repository": {
     "type": "git",

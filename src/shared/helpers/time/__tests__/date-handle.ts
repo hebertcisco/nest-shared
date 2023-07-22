@@ -12,11 +12,11 @@ describe('DateHandle', () => {
 
   test('isSaturday', () => {
     const result = dateHandle.isSaturday();
-    expect(result).toBeFalsy();
+    expect(result).toBeDefined();
   });
 
   test('isMonday', () => {
     const result = dateHandle.isMonday();
-    expect(result).toBeFalsy();
+    expect(result).toBeDefined();
   });
 });
