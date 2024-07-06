@@ -1,17 +1,12 @@
-import randts, { Configuration, NumberLength } from 'randts';
-
 export class RandomNumber {
-  private numberConfig: Configuration;
-  public constructor(min?: number, max?: number) {
-    this.numberConfig = new Configuration();
-    const minLength = this.numberConfig.setMinLength(min || 4);
-    const maxLength = this.numberConfig.setMaxLength(max || NumberLength.getMaxSafeLength());
-    min = minLength.getMinLength().getValue();
-    max = maxLength.getMaxLength().getValue();
+  private min: number;
+  private max: number;
+  public constructor(min: number, max: number) {
+    this.min = min;
+    this.max = max;
   }
   public generate(): number {
-    const randomNumber = new randts.Generator(this.numberConfig);
-    return randomNumber.getNumber().getValue();
+    return this.min + Math.random() * (this.max - this.min);
   }
 }
 export default RandomNumber;

@@ -49,7 +49,7 @@ export class FileService {
 
     return FilesInterceptor(args.field_name, Number(args.options?.maxCount), {
       storage: multerS3({
-        s3: this.s3,
+        s3: this.s3 as any,
         bucket: String(bucket),
         acl: args?.acl,
         metadata: metadata,
