@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nest-shared": "^5.0.1"
+    "nest-shared": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^18.15.12",
