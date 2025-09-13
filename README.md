@@ -8,6 +8,8 @@
 
 [![📝 Update Lock](https://github.com/hebertcisco/nest-shared/actions/workflows/update-lock.yml/badge.svg)](https://github.com/hebertcisco/nest-shared/actions/workflows/update-lock.yml)
 
+Shared helpers, contracts and configuration utilities for NestJS/TypeScript projects.
+
 ## Installation
 
 > Install with yarn or npm: `yarn` or `npm`:
@@ -22,7 +24,12 @@ yarn add nest-shared
 npm i nest-shared --save
 ```
 
-### Import the lib with es6 or cjs:
+### Requirements
+
+- Node.js >= 20.18.1
+- TypeScript >= 5.9
+
+### Import the lib with ES Modules or CommonJS:
 
 ```mjs
 // es6
@@ -34,7 +41,7 @@ import shared from 'nest-shared';
 const shared = require('nest-shared');
 ```
 
-### Usage examples:
+### Usage examples
 
 ### Express usage
 
@@ -102,7 +109,11 @@ console.log('api_key', api_key); // apk_f9cfa3c29500449828aebc910ce1d328
 #!/usr/bin/env node
 import { BufferBase } from 'nest-shared';
 import { Buffer } from 'buffer';
-import type { EncodeDataType, DecodeStrType } from 'nest-shared/lib/shared/types/buffer.type';
+// Types are available via a deep import (barrels exclude this to avoid bloat)
+import type {
+  EncodeDataType,
+  DecodeStrType,
+} from 'nest-shared/lib/shared/contract/types/buffer.type';
 
 console.log(BufferBase.name); // BufferBase
 
@@ -111,76 +122,62 @@ class BufferBaseImpl implements BufferBase {
     return Buffer.from(data).toString('base64');
   }
   decode(str: DecodeStrType): string {
-    return Buffer.from(str, 'utf-8').toString('utf-8');
+    // example: decoding from base64 into utf-8
+    return Buffer.from(str, 'base64').toString('utf-8');
   }
 }
 
 const bufferBaseImpl = new BufferBaseImpl();
 
 const content = 'Hello World!';
+const encoded = bufferBaseImpl.encode(content);
+console.log(encoded); // SGVsbG8gV29ybGQh
+console.log(bufferBaseImpl.decode(encoded)); // Hello World!
 
-console.log(bufferBaseImpl.encode(content)); // SGVsbG8gV29ybGQh
-console.log(bufferBaseImpl.decode(content)); // Hello World!
+```
+
+##### Base64 helper
+
+```ts
+import { encode, decode, validateUUID, randomUUID } from 'nest-shared';
+
+const b64 = encode({ text: 'hello' });
+console.log(b64); // aGVsbG8=
+console.log(decode({ text: b64 })); // hello
+
+console.log(validateUUID(randomUUID)); // true
 ```
 
 ### File structure
 
 ```text
 ├── src
-│   ├── common
-│   │   ├── base
-│   │   │   ├── buffer-base.ts
-│   │   │   ├── class-base.ts
-│   │   │   ├── crud-base.ts
-│   │   ├── constants
-│   │   │   ├── global.constants.ts
-│   │   │   └── regex.constants.ts
-│   │   ├── entity
-│   │   │   ├── global-common.entity.ts
-│   │   │   └── user.common.entity.ts
-│   │   └── interfaces
-│   │       ├── app-service.interface.ts
-│   │       ├── http.responses.interface.ts
-│   │       └── type-orm.interface.ts
 │   ├── config
-│   │   ├── application.config.ts
+│   │   └── application.config.ts
 │   ├── modules
-│   │   ├── file
-│   │   │   ├── interfaces
-│   │   │   │   ├── file.interface.ts
-│   │   │   ├── services
-│   │   │   │   ├── file.service.ts
-│   │   │   └── types
-│   │   │       └── file.type.ts
-│   ├── shared
-│   │   ├── helpers
-│   │   │   ├── class
-│   │   │   │   ├── getKeyFromClass.ts
-│   │   │   ├── crypto
-│   │   │   │   ├── Base64.ts
-│   │   │   │   ├── generateAPIKey.ts
-│   │   │   ├── fs
-│   │   │   │   └── parseFile.ts
-│   │   │   ├── http
-│   │   │   │   ├── axiosErrorHandler.ts
-│   │   │   │   ├── handleWithAxiosResponse.ts
-│   │   │   │   └── parseQueryParams.ts
-│   │   │   ├── math
-│   │   │   │   ├── RandomNumber.ts
-│   │   │   │   └── sum.ts
-│   │   │   └── time
-│   │   │       ├── date-handle.ts
-│   │   └── types
-│   │       ├── buffer.type.ts
-│   │       ├── class.type.ts
-│   │       ├── crud-base.type.ts
-│   └── @types
-│       └── unique-slug
+│   │   └── file
+│   │       ├── interfaces
+│   │       ├── services
+│   │       └── types
+│   └── shared
+│       ├── constants
+│       ├── contract
+│       │   ├── base
+│       │   ├── entity
+│       │   ├── interfaces
+│       │   └── types
+│       └── helpers
+│           ├── class
+│           ├── crypto
+│           ├── fs
+│           ├── http
+│           ├── math
+│           └── time
 ```
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](issues).
+Contributions, issues and feature requests are welcome!<br />Feel free to check the [issues page](https://github.com/hebertcisco/nest-shared/issues).
 
 ## Show your support
 
@@ -194,5 +191,5 @@ Or buy me a coffee 🙌🏾
 
 ## 📝 License
 
-Copyright © 2023 [Hebert F Barros](https://github.com/hebertcisco).<br />
+Copyright © 2023–2025 [Hebert F Barros](https://github.com/hebertcisco).<br />
 This project is [MIT](LICENSE) licensed.
