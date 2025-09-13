@@ -1,6 +1,6 @@
 {
   "name": "nest-shared",
-  "version": "5.0.8",
+  "version": "5.0.9",
   "description": "Shared code for nestjs projects",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
