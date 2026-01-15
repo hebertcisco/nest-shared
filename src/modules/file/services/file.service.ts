@@ -1,10 +1,5 @@
-import {
-  DeleteObjectCommand,
-  GetObjectCommand,
-  S3Client,
-} from '@aws-sdk/client-s3';
+import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
-import { Upload } from '@aws-sdk/lib-storage';
 import crypto from 'node:crypto';
 import { URL } from 'node:url';
 import { FilesInterceptor } from '@nestjs/platform-express';
@@ -40,29 +35,17 @@ export class FileService {
   };
   public filesInterceptor(args: FilesInterceptorInterfaceArgs) {
     const bucket = args.bucket;
-    const metadata = (
-      req: Request,
-      file: FileType,
-      cb: (arg0: any, arg1: { fieldName: string }) => void,
-    ) => {
+    const metadata = (req: Request, file: FileType, cb: (arg0: any, arg1: { fieldName: string }) => void) => {
       void req;
       cb(null, { fieldName: file.fieldname });
     };
-    const key = (
-      req: Request,
-      file: FileType,
-      cb: (arg0: any, arg1: string) => void,
-    ) => {
+    const key = (req: Request, file: FileType, cb: (arg0: any, arg1: string) => void) => {
       this.genFileName(req, file, (err, fileName) => {
         void err;
         cb(null, uniqueSlug(fileName));
       });
     };
-    const contentType = (
-      req: Request,
-      file: FileType,
-      cb: (arg0: any, arg1: string) => void,
-    ) => {
+    const contentType = (req: Request, file: FileType, cb: (arg0: any, arg1: string) => void) => {
       void req;
       cb(null, file.mimetype);
     };
@@ -93,24 +76,12 @@ export class FileService {
     const parsedPath = fileURL?.pathname?.replace(/^\/+/, '');
     return String(parsedPath);
   }
-  public async getSignedUrl(
-    key: string,
-    expires: number,
-    bucket?: string,
-  ): Promise<UrlType> {
-    const signedURl = await this.handleSignedUrl(
-      String(bucket),
-      key,
-      expires || 60 * 5,
-    );
+  public async getSignedUrl(key: string, expires: number, bucket?: string): Promise<UrlType> {
+    const signedURl = await this.handleSignedUrl(String(bucket), key, expires || 60 * 5);
     return signedURl;
   }
 
-  public async handleSignedUrl(
-    bucket: string,
-    key: string,
-    expires: number,
-  ): Promise<UrlType> {
+  public async handleSignedUrl(bucket: string, key: string, expires: number): Promise<UrlType> {
     const command = new GetObjectCommand({
       Bucket: bucket,
       Key: key,
@@ -120,11 +91,7 @@ export class FileService {
     });
     return new URL(url);
   }
-  public async parseFileURL(
-    avatar: string,
-    bucket: string,
-    expires?: number,
-  ): Promise<string> {
+  public async parseFileURL(avatar: string, bucket: string, expires?: number): Promise<string> {
     const signedUrl = await this.getSignedUrl(avatar, expires || 3600, bucket);
     return String(signedUrl.href);
   }
