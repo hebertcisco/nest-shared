@@ -16,7 +16,7 @@
     "nest-shared": "^5.1.0"
   },
   "devDependencies": {
-    "@types/node": "^18.15.12",
+    "@types/node": "^22.14.0",
     "typescript": "^5.0.4"
   }
 }
