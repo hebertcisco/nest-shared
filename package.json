@@ -34,7 +34,7 @@
     "nestjs",
     "typescript"
   ],
-  "author": "Hebert Cisco",
+  "author": "hebertcisco",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hebertcisco/nest-shared/issues"
