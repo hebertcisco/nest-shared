@@ -42,10 +42,48 @@ describe('ConfigService', () => {
     it('should type be a boolean', () => {
       expect(typeof isProduction === 'boolean').toBeTruthy();
     });
-    it('should are in testing stage', () => {
-      expect(isProduction).toBeFalsy();
-      expect(isProduction).toBe(false);
-      expect(isProduction).toEqual(false);
+    it('should return the default port when PORT is not set', () => {
+      const customConfig = new ConfigService({ NODE_ENV: 'testing' });
+      const port = customConfig.getPort();
+      expect(port).toBe(4000);
+    });
+
+    it('should return the custom port when PORT is set', () => {
+      const customConfig = new ConfigService({ ...processMock.env, PORT: '5000' });
+      const port = customConfig.getPort();
+      expect(port).toBe(5000);
+    });
+  });
+
+  describe('isDevelopment', () => {
+    it('should return false when NODE_ENV is testing', () => {
+      expect(configService.isDevelopment()).toBe(false);
+    });
+
+    it('should return true when NODE_ENV is development', () => {
+      const customConfig = new ConfigService({ ...processMock.env, NODE_ENV: 'development' });
+      expect(customConfig.isDevelopment()).toBe(true);
+    });
+  });
+
+  describe('isTest', () => {
+    it('should return true when NODE_ENV is testing', () => {
+      expect(configService.isTest()).toBe(true);
+    });
+
+    it('should return false when NODE_ENV is production', () => {
+      const customConfig = new ConfigService({ ...processMock.env, NODE_ENV: 'production' });
+      expect(customConfig.isTest()).toBe(false);
+    });
+  });
+
+  describe('ensureValues', () => {
+    it('should not throw an error if all keys exist', () => {
+      expect(() => configService.ensureValues(['NODE_ENV'])).not.toThrow();
+    });
+
+    it('should throw an error if a key is missing', () => {
+      expect(() => configService.ensureValues(['MISSING_KEY'])).toThrow('ConfigService error - Missing env.MISSING_KEY');
     });
   });
 });

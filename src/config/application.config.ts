@@ -10,7 +10,7 @@ export class ConfigService {
   public getValue<GetValueType>(key: string, throwOnMissing = true): GetValueType {
     const value = this.env[key];
 
-    const nodeEnv = process.env['NODE_ENV'] as unknown as NodeEnvType;
+    const nodeEnv = this.env['NODE_ENV'] as unknown as NodeEnvType;
     const safeEnv: boolean = nodeEnv == 'development' || nodeEnv === 'testing';
 
     const canBeThrown: boolean = safeEnv && !value && throwOnMissing;
@@ -31,8 +31,8 @@ export class ConfigService {
   }
 
   public getPort(): number {
-    const value = this.getValue<number>('PORT', false);
-    return value || NODE_PORT;
+    const value = this.getValue<string>('PORT', false);
+    return Number(value) || NODE_PORT;
   }
 
   public isProduction(): boolean {
