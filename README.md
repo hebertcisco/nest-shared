@@ -194,6 +194,17 @@ class CustomBuffer implements BufferBase {
 | `getNodeEnv()` | Get Node.js environment | `NodeEnvType` | `configService.getNodeEnv()` // 'development' |
 | `get(key, defaultValue?)` | Get configuration value by key | `T \| undefined` | `configService.get('DB_HOST', 'localhost')` |
 
+### File Service (`FileService`)
+
+Initialize with `{ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY }`.
+
+| Method | Description | Parameters | Return Type |
+|--------|-------------|------------|-------------|
+| `filesInterceptor(args)` | Create NestJS FilesInterceptor for S3 | `FilesInterceptorInterfaceArgs` | `Type<NestInterceptor>` |
+| `getS3FileURL(req)` | Get uploaded file URL from request | `Request` | `URL \| null` |
+| `getS3FileKey(req)` | Get uploaded file Key from request | `Request` | `string \| null` |
+| `getSignedUrl(key, expires, bucket)` | Generate presigned URL | `string, number, string` | `Promise<URL>` |
+
 ### Cryptographic Utilities
 
 | Function | Description | Parameters | Return Type |
