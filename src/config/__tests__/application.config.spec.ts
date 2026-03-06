@@ -83,7 +83,9 @@ describe('ConfigService', () => {
     });
 
     it('should throw an error if a key is missing', () => {
-      expect(() => configService.ensureValues(['MISSING_KEY'])).toThrow('ConfigService error - Missing env.MISSING_KEY');
+      expect(() => configService.ensureValues(['MISSING_KEY'])).toThrow(
+        'ConfigService error - Missing env.MISSING_KEY',
+      );
     });
   });
 });

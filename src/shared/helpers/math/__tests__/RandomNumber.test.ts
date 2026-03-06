@@ -1,4 +1,3 @@
-
 import { RandomNumber } from '../RandomNumber';
 
 describe('RandomNumber', () => {

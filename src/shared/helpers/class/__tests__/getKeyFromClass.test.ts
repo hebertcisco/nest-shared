@@ -1,4 +1,3 @@
-
 import { getKeyFromClass } from '../getKeyFromClass';
 
 class MyClass {}

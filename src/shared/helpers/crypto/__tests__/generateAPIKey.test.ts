@@ -1,4 +1,3 @@
-
 import { generateAPIKey } from '../generateAPIKey';
 
 describe('generateAPIKey', () => {
@@ -56,7 +55,7 @@ describe('generateAPIKey', () => {
 
   it('should handle different digest types', () => {
     const digests = ['hex', 'base64', 'base64url', 'binary'];
-    digests.forEach(digest => {
+    digests.forEach((digest) => {
       const apiKey = generateAPIKey({ digest });
       expect(apiKey).toBeDefined();
     });
